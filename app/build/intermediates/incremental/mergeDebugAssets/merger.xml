@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/citesoft-03/Escritorio/AFD/app/src/main/assets"/><source path="/home/citesoft-03/Escritorio/AFD/app/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/citesoft-03/Escritorio/AFD/app/src/debug/assets"/></dataSet></merger>
