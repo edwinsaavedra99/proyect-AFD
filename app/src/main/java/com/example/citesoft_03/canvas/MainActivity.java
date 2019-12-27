@@ -28,7 +28,7 @@ import java.util.ArrayList;
 //LIMITES
 //ARREGLAR CAMBIO DE SELECCION
 //PUNTEROS
-//
+//testing
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
