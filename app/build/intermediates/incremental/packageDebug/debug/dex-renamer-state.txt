@@ -1,4 +1,4 @@
-#Mon Dec 23 12:22:55 PET 2019
-base.0=/home/citesoft-03/Escritorio/AFD/app/build/intermediates/transforms/dexMerger/debug/0
+#Fri Dec 27 00:43:34 COT 2019
+base.0=C\:\\Users\\Edwin\\AndroidStudioProjects\\proyect-AFD\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

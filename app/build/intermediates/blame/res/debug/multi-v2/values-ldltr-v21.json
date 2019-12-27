@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wilmerpachecollacho/Documents/AFD/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "C:\\home\\citesoft-03\\Escritorio\\AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/Users/wilmerpachecollacho/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/afe1bafd75d141248041adda2bc0ca0a/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "C:\\home\\citesoft-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ce2b127b69a9cf075926d73852462766\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,25 @@
             ]
         },
         {
-            "outputFile": "/home/citesoft-03/Escritorio/AFD/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "C:\\Users\\Edwin\\AndroidStudioProjects\\proyect-AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/home/citesoft-03/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/ce2b127b69a9cf075926d73852462766/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "C:\\Users\\Edwin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ce30fa8ce7f4a81466e4c269fba17608\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\wilmerpachecollacho\\Documents\\AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\wilmerpachecollacho\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\afe1bafd75d141248041adda2bc0ca0a\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

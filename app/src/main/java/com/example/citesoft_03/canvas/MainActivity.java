@@ -416,9 +416,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
             int acci = event.getAction();
             if (acci == MotionEvent.ACTION_DOWN) {
-                if(checkBox.isChecked()){
-                    addCirculoSegmentation(getx,gety,12);
-                }
+
                 getx_pasado=getx;
                 gety_pasado=gety;
                 for (int i = 0; i < mis_figuras.size(); i++) {
@@ -464,6 +462,23 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
             }
                 if (acci == MotionEvent.ACTION_MOVE) {
+                    if(checkBox.isChecked()){
+                        if(!segmentation.isEmpty()) {
+                            boolean drawS = true;
+                            for(int i=0;i<segmentation.size();i++){
+                                Figura aux = segmentation.get(i);
+                                float centrox = aux.getX() - event.getX();
+                                float centroy = aux.getY() - event.getY();
+                                if (Math.sqrt(centrox * centrox + centroy * centroy) < 50) {
+                                    drawS = false;
+                                }
+                            }
+                            if(drawS)
+                                addCirculoSegmentation(getx, gety, 10);
+                        }else{
+                            addCirculoSegmentation(getx, gety, 12);
+                        }
+                    }
                     if (figura > -1) {
                         if (mis_figuras.get(figura) instanceof Circulo) {
                             Circulo temp=(Circulo)mis_figuras.get(figura);
@@ -649,7 +664,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 JSONObject circ = circulos_saved.getJSONObject(i);
                 //new Gson().fromJson(city.toString(), City.class);
 
-                this.lista_figura.add(circ.getLong("x"),circ.getLong("y"),circ.getLong("radio"));
+               // this.lista_figura.add(circ.getLong("x"),circ.getLong("y"),circ.getLong("radio"));
             }
             this.lista_figura.actualizar();
         } catch (Exception e) {
@@ -658,6 +673,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     public void writeJson() {
-        IOHelper.writeToFile(this, "circles.json", this.lista_figura.toString());
+       // IOHelper.writeToFile(this, "circles.json", this.lista_figura.toString());
     }
 }

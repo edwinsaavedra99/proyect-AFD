@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AFD.iml" filepath="$PROJECT_DIR$/AFD.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proyect-AFD.iml" filepath="$PROJECT_DIR$/proyect-AFD.iml" />
     </modules>
   </component>
 </project>

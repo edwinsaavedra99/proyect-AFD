@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/citesoft-03/Escritorio/AFD/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v12/values-v12.xml",
+            "outputFile": "C:\\home\\citesoft-03\\Escritorio\\AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
             "map": [
                 {
-                    "source": "/home/citesoft-03/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/ce2b127b69a9cf075926d73852462766/res/values-v12/values-v12.xml",
+                    "source": "C:\\home\\citesoft-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ce2b127b69a9cf075926d73852462766\\res\\values-v12\\values-v12.xml",
                     "from": {
                         "startLines": "2,5,8,9",
                         "startColumns": "4,4,4,4",
@@ -17,10 +17,26 @@
             ]
         },
         {
-            "outputFile": "/Users/wilmerpachecollacho/Documents/AFD/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v12/values-v12.xml",
+            "outputFile": "C:\\Users\\wilmerpachecollacho\\Documents\\AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
             "map": [
                 {
-                    "source": "/Users/wilmerpachecollacho/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/afe1bafd75d141248041adda2bc0ca0a/res/values-v12/values-v12.xml",
+                    "source": "C:\\Users\\wilmerpachecollacho\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\afe1bafd75d141248041adda2bc0ca0a\\res\\values-v12\\values-v12.xml",
+                    "from": {
+                        "startLines": "2,5,8,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,279,479,598",
+                        "endLines": "4,7,8,9",
+                        "endColumns": "12,12,118,94",
+                        "endOffsets": "274,474,593,688"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Edwin\\AndroidStudioProjects\\proyect-AFD\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Edwin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ce30fa8ce7f4a81466e4c269fba17608\\res\\values-v12\\values-v12.xml",
                     "from": {
                         "startLines": "2,5,8,9",
                         "startColumns": "4,4,4,4",
