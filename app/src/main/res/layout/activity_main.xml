@@ -27,18 +27,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/img3"
-        android:layout_width="100dp"
-        android:layout_height="180dp"
-        android:background="@drawable/rx_image"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints"></LinearLayout>
-
     <Button
         android:id="@+id/button_circle"
         android:layout_width="86dp"
@@ -70,22 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.987" />
-
-    <Button
-        android:id="@+id/button_segmentation"
-        android:layout_width="86dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="SEGM"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888" />
 
     <Button
         android:id="@+id/button_rectangle"
@@ -208,20 +180,20 @@
         android:layout_width="83dp"
         android:layout_height="45dp"
         android:text="load"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="604dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="604dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
-        android:text="CheckBox"
+    <Button
+        android:id="@+id/button_segmenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Segmenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintVertical_bias="0.866" />
 
 </android.support.constraint.ConstraintLayout>

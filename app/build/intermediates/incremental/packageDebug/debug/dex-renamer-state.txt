@@ -1,4 +1,4 @@
-#Sat Dec 28 20:08:14 COT 2019
+#Tue Jan 07 21:03:58 COT 2020
 base.0=C\:\\Users\\Edwin\\AndroidStudioProjects\\proyect-AFD\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

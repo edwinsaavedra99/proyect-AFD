@@ -5,51 +5,27 @@ import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-
 import java.io.File;
 import java.util.ArrayList;
 
 public class list_Figura extends View {
     int selected;
-    protected ArrayList<Figura> segmentation;
     protected ArrayList<Figura> mis_figuras;
     protected float globalx;
     protected float globaly;
     private int color[]={183,149,11};
-    private LinearLayout includee;
     int figura = -1;
-    private CheckBox checkBox;
     protected list_show_view d;
-    public list_Figura(Context context,CheckBox checkBox, LinearLayout includee) {
+    public list_Figura(Context context){
         super(context);
-        d = new list_show_view(context,checkBox);
-        this.includee = includee;
-        includee.addView(d);
         mis_figuras = new ArrayList<Figura>();
-        segmentation = new ArrayList<Figura>();
-        this.checkBox = checkBox;
     }
-    public void addCirculoSegmentation(float x, float y, float radio) {
-        d.addCirculoSegmentation(x*100/315,y*180/514,radio*100*180/(315*514));
-        d.invalidate();
-        float[] intervals = new float[]{0.0f, 0.0f};
-        float phase = 0;
-        DashPathEffect dashPathEffect = new DashPathEffect(intervals, phase);
-        Paint pincela;
-        pincela = new Paint();
-        pincela.setAntiAlias(true);
-        pincela.setARGB(250, color[0],color[1],color[2]);
-        pincela.setStrokeWidth(4);
-        pincela.setStyle(Paint.Style.FILL);
-        pincela.setPathEffect(dashPathEffect);
-        Circulo aux = new Circulo(x, y, radio, pincela,color);
-        this.segmentation.add(aux);
-    }
-
     public void addCirculo(float x, float y, float radio) {
         float[] intervals = new float[]{0.0f, 0.0f};
         float phase = 0;
@@ -116,11 +92,6 @@ public class list_Figura extends View {
             figura = -1;
         }
     }
-    public void after(){
-        if(segmentation.size() > 0){
-            segmentation.remove(segmentation.size()-1);
-        }
-    }
     public void cambiarColor(int [] color) {
         this.color = color;
         if (mis_figuras.size() != 0 && this.selected != -1) {
@@ -139,34 +110,12 @@ public class list_Figura extends View {
         }
         return list_json+"]";
     }
-    public String toStringSegmentation(){
-        String list_json = "[\n";
-        for(int i=0;i<this.segmentation.size();i++){
-            list_json = list_json+segmentation.get(i).toString()+"\n";
-            if(i<this.segmentation.size()-1){
-                list_json = list_json+",";
-            }
-        }
-        return list_json+"]";
-    }
+
     public void clear_list(){
         this.mis_figuras.clear();
     }
     protected void onDraw(Canvas canvas) {
-        for(int i=0;i<segmentation.size();i++){
-            if (segmentation.get(i) instanceof Circulo) {
-                Circulo temp = (Circulo) segmentation.get(i);
-                if(i==segmentation.size()-1){
-                    temp.getPaint().setStyle(Paint.Style.STROKE);
-                }else{
-                    temp.getPaint().setStyle(Paint.Style.FILL);
-                }
-                canvas.drawCircle(temp.getX(), temp.getY(), temp.getRadio(), temp.getPaint());
-            }else{
-                System.out.println("DEMO SOLO SEGMENTO CON CIRCULOS ...");
-            }
-        }
-        for (int i = 0; i < mis_figuras.size(); i++) {
+       for (int i = 0; i < mis_figuras.size(); i++) {
             if (mis_figuras.get(i) instanceof Circulo) {
                 Circulo temp = (Circulo) mis_figuras.get(i);
                 canvas.drawCircle(temp.getX(), temp.getY(), temp.getRadio(), temp.getPaint());
@@ -212,13 +161,14 @@ public class list_Figura extends View {
     }
     float getx_pasado = 0;
     float gety_pasado = 0;
+    //@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public boolean onTouchEvent(MotionEvent event) {
         float getx = event.getX();
         float gety = event.getY();
         this.globalx = getx;
         this.globaly = gety;
         int acci = event.getAction();
-        if (acci == MotionEvent.ACTION_DOWN) {
+        if (acci == MotionEvent.ACTION_DOWN ) {
             getx_pasado=getx;
             gety_pasado=gety;
             for (int i = 0; i < mis_figuras.size(); i++) {
@@ -228,21 +178,21 @@ public class list_Figura extends View {
                     double cenx = getx - mis_figuras.get(i).getX();
                     double ceny = gety - mis_figuras.get(i).getY();
                     float distancia = (float) Math.sqrt(cenx * cenx + ceny * ceny);
-                    if (distancia <= temp.getRadio()&& !checkBox.isChecked()) {
+                    if (distancia <= temp.getRadio()) {
                         figura = i;
                         this.selected = i;
                         invalidate();
                     }
                 } else if (mis_figuras.get(i) instanceof Rectangulo) {
                     Rectangulo temp = (Rectangulo) mis_figuras.get(i);
-                    if (getx <= temp.getX1() && getx >= temp.getX() && gety >= temp.getY() && gety <= temp.getY1()&& !checkBox.isChecked()) {
+                    if (getx <= temp.getX1() && getx >= temp.getX() && gety >= temp.getY() && gety <= temp.getY1()) {
                         figura = i;
                         this.selected = i;
                         invalidate();
                     }
                 } else if (mis_figuras.get(i) instanceof Linea) {
                     Linea temp = (Linea) mis_figuras.get(i);
-                    if (temp.distancia(getx, gety) <= 20&& !checkBox.isChecked()) {
+                    if (temp.distancia(getx, gety) <= 20) {
                         figura = i;
                         this.selected = i;
                         invalidate();
@@ -250,43 +200,21 @@ public class list_Figura extends View {
                     //add canvas
                 } else if (mis_figuras.get(i) instanceof Elipse) {
                     Elipse temp = (Elipse) mis_figuras.get(i);
-                    if (getx <= temp.getX1() && getx >= temp.getX() && gety >= temp.getY() && gety <= temp.getY1()&& !checkBox.isChecked()) {
+                    if (getx <= temp.getX1() && getx >= temp.getX() && gety >= temp.getY() && gety <= temp.getY1()) {
                         figura = i;
                         this.selected = i;
                         invalidate();
                     }
                 }
-                if (figura > -1 && !checkBox.isChecked()) {
+                if (figura > -1) {
                     this.selected = figura;
                     //mis_figuras.get(figura).getPaint().setStrokeWidth(9);
                 }
             }
         }
-       /* if(acci == MotionEvent.ACTION_UP){
-            if(checkBox.isChecked()){
-                if(segmentation.isEmpty()) {
-                    addCirculoSegmentation(getx, gety, 9);
-                }
-            }
-        }*/
+
         if (acci == MotionEvent.ACTION_MOVE) {
-            if(checkBox.isChecked()){
-                if(!segmentation.isEmpty()) {
-                    boolean drawS = false;
-                    Figura aux = segmentation.get(segmentation.size()-1);
-                    float centrox = aux.getX() - event.getX();
-                    float centroy = aux.getY() - event.getY();
-                    //50 y 60 es el intervalo de posible segmentacion
-                    if (Math.sqrt(centrox * centrox + centroy * centroy) > 50 && Math.sqrt(centrox * centrox + centroy * centroy)<60) {
-                        drawS = true;
-                    }
-                    if(drawS)
-                        addCirculoSegmentation(getx, gety, 9);
-                }else{
-                    addCirculoSegmentation(getx, gety, 9);
-                }
-            }
-            if (figura > -1) {
+                 if (figura > -1) {
                 if (mis_figuras.get(figura) instanceof Circulo) {
                     Circulo temp=(Circulo)mis_figuras.get(figura);
                     float cenx = getx - (temp.getX()+temp.getRadio());

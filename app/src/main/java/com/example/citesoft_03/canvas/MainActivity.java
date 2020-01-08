@@ -1,5 +1,6 @@
 package com.example.citesoft_03.canvas;
 /*Import*/
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.json.JSONArray;
@@ -16,14 +16,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
-
-    private float xBegin;
-    private float yBeging;
+public class MainActivity extends AppCompatActivity {
+    /*Declaration*/
     String archivo;
     String carpeta;
     File file;
-    private TextView value_y;
     private Button creator_circles;
     private Button delete_circles;
     private Button creator_line;
@@ -35,34 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private Button save_1;
     private Button load_1;
     private Button segmenta;
-    private CheckBox checkBox;
     private LinearLayout imagen;
-    private  LinearLayout includee;
+    private LinearLayout includee;
     private list_Figura lista_figura;
-    private list_show_view lista_figura1;
     private int color[]={183,149,11};
-    private MotionEvent ev;
-
-    @Override
-    public boolean onTouch(View arg0, MotionEvent event){
-        float getx = event.getX();
-        float gety = event.getY();
-        if(event.getAction()==MotionEvent.ACTION_DOWN) {
-            xBegin = getx;
-            yBeging = gety;
-        }
-        return true;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkBox=(CheckBox) findViewById(R.id.checkBox);
-        includee = (LinearLayout) findViewById(R.id.img3);
-        includee.setVisibility(View.INVISIBLE);
-        lista_figura = new list_Figura(this,checkBox,includee);
-        //lista_figura1 = new list_show_view(this,checkBox);
+        /*Initialitation*/
         creator_circles = (Button) findViewById(R.id.button_circle);
         creator_line = (Button) findViewById(R.id.button_line);
         creator_rectangle = (Button) findViewById(R.id.button_rectangle);
@@ -73,66 +51,41 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         paleta_celeste = (Button) findViewById(R.id.paleta_celeste);
         save_1 = (Button) findViewById(R.id.button_save);
         load_1 =(Button) findViewById(R.id.button_load);
-        segmenta =(Button) findViewById(R.id.button_segmentation);
+        segmenta = (Button) findViewById(R.id.button_segmenta);
         archivo = "miarchivo";
         carpeta = "/carpeta/";
         //crear_archivo_json();
+        lista_figura = new list_Figura(this);
         imagen = (LinearLayout) findViewById(R.id.img2);
         imagen.addView(lista_figura);
         creator_circles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checkBox.isChecked()){
                     lista_figura.addCirculo(100,100,100);
                     lista_figura.actualizar();
-                }
-
             }
         });
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(checkBox.isChecked()){
-                    float xx = lista_figura.globalx;
-                    float yy = lista_figura.globaly;
-                    includee.setVisibility(View.VISIBLE);
-
-                }else{
-                    includee.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-
         creator_rectangle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checkBox.isChecked()){
                     lista_figura.addRectangulo(0, 100, 400, 300);
                     lista_figura.actualizar();
-                }
-
             }
         });
         creator_line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checkBox.isChecked()){
                     lista_figura.addLinea(50, 50, 150, 400);
                     lista_figura.actualizar();
-                }
-
             }
         });
-
         save_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //codigo de color azul
                 //escribir_archivo_json();
                 writeJson();
-                System.out.println(lista_figura.toStringSegmentation());
+                //System.out.println(lista_figura.toStringSegmentation());
               /*  try {
                     FileWriter data = new FileWriter(Environment.getExternalStorageDirectory() +"/Canvas/Archivos/data.json");
                     data.write(lista_figura.toStringSegmentation());
@@ -140,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 } catch (IOException e) {
                     e.printStackTrace();
                 }*/
-
             }
         });
         load_1.setOnClickListener(new View.OnClickListener() {
@@ -201,10 +153,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         segmenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(MainActivity.this,TwoActivity.class);
-                //startActivity(i);
-                lista_figura.after();
-                lista_figura.actualizar();
+                Intent i = new Intent(MainActivity.this,TwoActivity.class);
+                startActivity(i);
+                //lista_figura.after();
+                //lista_figura.actualizar();
             }
         });
     }

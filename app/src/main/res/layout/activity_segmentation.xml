@@ -5,18 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TwoActivity">
-    
-    <Button
-        android:id="@+id/button_circle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
 
     <Button
         android:id="@+id/button_delete2"
@@ -30,15 +18,48 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.935" />
 
+
+
     <LinearLayout
         android:id="@+id/imgfemur"
-        android:layout_width="315dp"
-        android:layout_height="554dp"
+        android:layout_width="281dp"
+        android:layout_height="521dp"
         android:background="@drawable/rx_image"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="46dp"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376"
+        tools:ignore="MissingConstraints">
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/img3"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:background="@drawable/rx_image"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_bias="0.377"
+        tools:ignore="MissingConstraints">
+
+    </LinearLayout>
+
+
+
+    <CheckBox
+        android:id="@+id/check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Segmenta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
